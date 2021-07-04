@@ -192,8 +192,7 @@ public class MainActivity extends Activity
 
 
                 // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
-                Intent intent = new Intent(getBaseContext(), browserActivity.class);
-                intent.putExtra("EXTERNAL_URL", url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intent);
                 return true;
 
@@ -413,17 +412,17 @@ public class MainActivity extends Activity
 
                 return true;
             case R.id.drawer_create_post:
-                mWebview.loadUrl("https://ruqqus.com/submit");
+                mWebview.loadUrl("https://rdrama.net/submit");
                 drawer.closeDrawer(GravityCompat.START);
 
                 return true;
             case R.id.drawer_settings_account:
-                mWebview.loadUrl("https://ruqqus.com/settings");
+                mWebview.loadUrl("https://rdrama.net/settings");
                 drawer.closeDrawer(GravityCompat.START);
 
                 return true;
             case R.id.drawer_about:
-                mWebview.loadUrl("https://ruqqus.com/help/about");
+                mWebview.loadUrl("https://rdrama.net/help/about");
                 drawer.closeDrawer(GravityCompat.START);
 
                 return true;
@@ -498,7 +497,7 @@ public class MainActivity extends Activity
 
     public void downloadImage() {
         if (URLUtil.isValidUrl(DownloadImageURL)) {
-            AltexImageDownloader.writeToDisk(getApplicationContext(), DownloadImageURL, "ruqqus");
+            AltexImageDownloader.writeToDisk(getApplicationContext(), DownloadImageURL, "drama");
 
 
                                /* DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadImageURL));
